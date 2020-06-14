@@ -7,10 +7,11 @@ class Game extends StatefulWidget {
 }
 
 class _GameState extends State<Game> {
-  var _imageApp = AssetImage("images/padrao.png");
+  var _imageApp = AssetImage("images/empty.png");
+  var _message = "Escolha uma opção abaixo";
 
   void _optionSelected(String chooseUser) {
-    var options = ["pedra", "papel", "tesoura"];
+    var options = ["rock", "paper", "scissor"];
     var optionNumber = Random().nextInt(3);
     var chooseApp = options[optionNumber];
 
@@ -19,19 +20,19 @@ class _GameState extends State<Game> {
 
     //Displays image chosen by the app
     switch (chooseApp) {
-      case "pedra":
+      case "rock":
         setState(() {
-          this._imageApp = AssetImage("images/pedra.png");
+          this._imageApp = AssetImage("images/rock.png");
         });
         break;
-      case "papel":
+      case "paper":
         setState(() {
-          this._imageApp = AssetImage("images/papel.png");
+          this._imageApp = AssetImage("images/paper.png");
         });
         break;
-      case "tesoura":
+      case "scissor":
         setState(() {
-          this._imageApp = AssetImage("images/tesoura.png");
+          this._imageApp = AssetImage("images/scissor.png");
         });
         break;
     }
@@ -59,7 +60,7 @@ class _GameState extends State<Game> {
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16),
             child: Text(
-              "Escolha uma opção abaixo",
+              this._message,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
@@ -68,23 +69,23 @@ class _GameState extends State<Game> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               GestureDetector(
-                onTap: () => _optionSelected("pedra"),
+                onTap: () => _optionSelected("rock"),
                 child: Image.asset(
-                  "images/pedra.png",
+                  "images/rock.png",
                   height: 100,
                 ),
               ),
               GestureDetector(
-                onTap: () => _optionSelected("papel"),
+                onTap: () => _optionSelected("paper"),
                 child: Image.asset(
-                  "images/papel.png",
+                  "images/paper.png",
                   height: 100,
                 ),
               ),
               GestureDetector(
-                onTap: () => _optionSelected("tesoura"),
+                onTap: () => _optionSelected("scissor"),
                 child: Image.asset(
-                  "images/tesoura.png",
+                  "images/scissor.png",
                   height: 100,
                 ),
               )
