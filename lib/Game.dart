@@ -36,6 +36,22 @@ class _GameState extends State<Game> {
         });
         break;
     }
+
+    //winner validation
+    //winning user
+    if ((chooseUser == "rock" && chooseApp == "scissor") ||
+        (chooseUser == "scissor" && chooseApp == "paper") ||
+        (chooseUser == "paper" && chooseApp == "rock")) {
+      this._message = "VITÓRIA";
+    }
+    //winning app
+    else if ((chooseApp == "rock" && chooseUser == "scissor") ||
+        (chooseApp == "scissor" && chooseUser == "paper") ||
+        (chooseApp == "paper" && chooseUser == "rock")) {
+          this._message =  "DERROTA";
+    }else {
+      this._message = "EMPATE";
+    }
   }
 
   @override
